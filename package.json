@@ -72,6 +72,15 @@
         "releaseType": "release"
       }
     ],
+    "extraResources": [
+      {
+        "from": "./src/assets/extraResources/",
+        "to": "extraResources",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
     "afterSign": "scripts/notarize.js",
     "productName": "Leapp",
     "icon": "src/assets/icons/icon.icns",

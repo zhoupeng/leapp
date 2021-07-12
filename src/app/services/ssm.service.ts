@@ -123,6 +123,9 @@ export class SsmService {
       const reservations = await this.ec2Client.describeInstances(params).promise();
 
       instances.forEach(instance => {
+
+
+
         const foundInstance = reservations.Reservations.filter(r => r.Instances[0].InstanceId === instance.Name);
         if (foundInstance.length > 0) {
           const foundName = foundInstance[0].Instances[0].Tags.filter(t => t.Key === 'Name');

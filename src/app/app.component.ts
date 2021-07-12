@@ -12,7 +12,8 @@ import {SessionFactoryService} from './services/session-factory.service';
 import {UpdaterService} from './services/updater.service';
 import compareVersions from 'compare-versions';
 import {RetrocompatibilityService} from './services/retrocompatibility.service';
-import {LeappParseError} from "./errors/leapp-parse-error";
+import {LeappParseError} from './errors/leapp-parse-error';
+import {DaemonService} from './services/daemon.service';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,8 @@ export class AppComponent implements OnInit {
     private sessionProviderService: SessionFactoryService,
     private router: Router,
     private timerService: TimerService,
-    private updaterService: UpdaterService
+    private updaterService: UpdaterService,
+    private daemonService: DaemonService
   ) {}
 
   async ngOnInit() {
@@ -91,6 +93,8 @@ export class AppComponent implements OnInit {
     } else {
       this.router.navigate(['/start', 'start-page']);
     }
+
+    this.daemonService.launchDaemon();
   }
 
   /**

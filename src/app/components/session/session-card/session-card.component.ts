@@ -15,7 +15,7 @@ import {FileService} from '../../../services/file.service';
 import {SessionFactoryService} from '../../../services/session-factory.service';
 import {SessionStatus} from '../../../models/session-status';
 import {SessionService} from '../../../services/session.service';
-import {Constants} from "../../../models/constants";
+import {Constants} from '../../../models/constants';
 
 @Component({
   selector: 'app-session-card',
@@ -30,6 +30,9 @@ export class SessionCardComponent implements OnInit {
 
   @ViewChild('ssmModalTemplate', { static: false })
   ssmModalTemplate: TemplateRef<any>;
+
+  @ViewChild('ssmDiskModalTemplate', { static: false })
+  ssmDiskModalTemplate: TemplateRef<any>;
 
   @ViewChild('defaultRegionModalTemplate', { static: false })
   defaultRegionModalTemplate: TemplateRef<any>;
